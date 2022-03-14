@@ -1,4 +1,9 @@
 'use strict';
+const message = document.querySelector('.message');
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissors = document.querySelector('#scissors');
+
 //? This is use to check the winner of the game instead of a if...else
 const winMap = { rock: 'scissors', scissors: 'paper', paper: 'rock' };
 
@@ -15,29 +20,35 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    console.log('The game is Tie');
+    message.textContent = 'The game is Tie';
     playerScore++;
     computerScore++;
   }
   //? Check if the player index of the player selection is equal to a win combination
   else if (winMap[playerSelection] === computerSelection) {
-    console.log(`You win this round! ${playerSelection} beat ${computerSelection}`);
+    message.textContent = `You win this round! ${playerSelection} beat ${computerSelection}`;
     playerScore++;
   } else {
-    console.log(`You lose this round! ${computerSelection} beat ${playerSelection}`);
+    message.textContent = `You lose this round! ${computerSelection} beat ${playerSelection}`;
     computerScore++;
   }
+  document.querySelector('.player-score').textContent = playerScore;
+  document.querySelector('.computer-score').textContent = computerScore;
 }
 
-// function game(round) {
-//   for (let i = 0; i < round; i++) {
-//     const playerSelection = prompt('Choose between rock, paper or scissors').toLowerCase();
-//     const computerSelection = computerPlay();
-//     console.log(playRound(playerSelection, computerSelection));
-//   }
-//   console.log('Player Score ' + playerScore);
-//   console.log('Computer Score ' + computerScore);
-//   playerScore > computerScore ? console.log('You win the game!') : console.log('You lose the game!');
-// }
+btnRock.addEventListener('click', () => {
+  const playerSelection = 'rock';
+  const computerSelection = computerPlay();
+  playRound(playerSelection, computerSelection);
+});
 
-// game(5);
+btnPaper.addEventListener('click', () => {
+  const playerSelection = 'paper';
+  const computerSelection = computerPlay();
+  playRound(playerSelection, computerSelection);
+});
+btnScissors.addEventListener('click', () => {
+  const playerSelection = 'scissors';
+  const computerSelection = computerPlay();
+  playRound(playerSelection, computerSelection);
+});
