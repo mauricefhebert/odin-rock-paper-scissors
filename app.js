@@ -34,6 +34,7 @@ function playRound(playerSelection, computerSelection) {
   }
   document.querySelector('.player-score').textContent = playerScore;
   document.querySelector('.computer-score').textContent = computerScore;
+  message.classList.remove('hidden');
 }
 
 btnRock.addEventListener('click', () => {
@@ -52,3 +53,5 @@ btnScissors.addEventListener('click', () => {
   const computerSelection = computerPlay();
   playRound(playerSelection, computerSelection);
 });
+
+//message.classList.add('hidden'); //on game reset
