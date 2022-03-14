@@ -35,13 +35,38 @@ function playRound(playerSelection, computerSelection) {
   document.querySelector('.computer-score').textContent = computerScore;
 }
 
-document.querySelectorAll('.btn').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    let playerSelection;
-    if (e.currentTarget.textContent == 'rock') playerSelection = 'rock';
-    if (e.currentTarget.textContent == 'paper') playerSelection = 'paper';
-    if (e.currentTarget.textContent == 'scissors') playerSelection = 'scissors';
-    const computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection);
-  });
+document.querySelector('.center').addEventListener('click', (e) => {
+  if (e.target == e.target.closest('.btnReset')) {
+    game(5);
+    message.textContent = '';
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector('.player-score').textContent = playerScore;
+    document.querySelector('.computer-score').textContent = computerScore;
+    document.querySelector('.btnReset').classList.add('hidden');
+  }
 });
+
+function game(round) {
+  document.querySelectorAll('.btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if (round > 0) {
+        let playerSelection;
+        if (e.currentTarget.textContent == 'rock') playerSelection = 'rock';
+        if (e.currentTarget.textContent == 'paper') playerSelection = 'paper';
+        if (e.currentTarget.textContent == 'scissors') playerSelection = 'scissors';
+        const computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+        round--;
+        if (round === 0) {
+          playerScore > computerScore
+            ? (message.textContent = 'You win the game! 🎉')
+            : (message.textContent = 'You lose the game! ❌');
+          document.querySelector('.btnReset').classList.remove('hidden');
+        }
+      }
+    });
+  });
+}
+
+game(5);

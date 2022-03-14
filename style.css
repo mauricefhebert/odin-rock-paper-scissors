@@ -37,10 +37,18 @@ body {
   background-color: var(--action-hover);
 }
 
-.message {
+.center {
+  margin: 0 auto;
   text-align: center;
+}
+
+.message {
   font-size: 2em;
   margin: 1.5em auto;
+}
+
+.hidden {
+  display: none;
 }
 
 h2 {
