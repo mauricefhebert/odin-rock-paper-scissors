@@ -1,0 +1,29 @@
+* {
+  --main: #dbede0;
+  --second: #518765;
+  --action: #8ff0d7;
+}
+
+body {
+  background-color: var(--main);
+}
+
+.title {
+  text-align: center;
+  color: var(--second);
+}
+
+.control {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 30em;
+  margin: 0 auto;
+}
+
+.btn {
+  background-color: #8ff0d7;
+  border: 0.1em solid black;
+  border-radius: 0.4em;
+  width: 5em;
+  height: 3em;
+}
