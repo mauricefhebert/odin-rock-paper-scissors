@@ -21,8 +21,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     message.textContent = 'The game is Tie';
-    playerScore++;
-    computerScore++;
+    playerScore++, computerScore++;
   }
   //? Check if the player index of the player selection is equal to a win combination
   else if (winMap[playerSelection] === computerSelection) {
@@ -34,24 +33,15 @@ function playRound(playerSelection, computerSelection) {
   }
   document.querySelector('.player-score').textContent = playerScore;
   document.querySelector('.computer-score').textContent = computerScore;
-  message.classList.remove('hidden');
 }
 
-btnRock.addEventListener('click', () => {
-  const playerSelection = 'rock';
-  const computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
+document.querySelectorAll('.btn').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    let playerSelection;
+    if (e.currentTarget.textContent == 'rock') playerSelection = 'rock';
+    if (e.currentTarget.textContent == 'paper') playerSelection = 'paper';
+    if (e.currentTarget.textContent == 'scissors') playerSelection = 'scissors';
+    const computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+  });
 });
-
-btnPaper.addEventListener('click', () => {
-  const playerSelection = 'paper';
-  const computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
-});
-btnScissors.addEventListener('click', () => {
-  const playerSelection = 'scissors';
-  const computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
-});
-
-//message.classList.add('hidden'); //on game reset

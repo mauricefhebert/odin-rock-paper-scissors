@@ -2,6 +2,7 @@
   --main: #dbede0;
   --second: #518765;
   --action: #8ff0d7;
+  --action-hover: #8ff0f0;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 }
 
 .btn {
-  background-color: #8ff0d7;
+  background-color: var(--action);
   border: 0.1em solid black;
   border-radius: 0.4em;
   width: 5em;
@@ -33,7 +34,7 @@ body {
 
 .btn:hover {
   cursor: pointer;
-  background-color: hsl(178, 76%, 75%);
+  background-color: var(--action-hover);
 }
 
 .message {
@@ -42,14 +43,11 @@ body {
   margin: 1.5em auto;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
 h2 {
   text-align: center;
   font-size: 2.5em;
   margin-bottom: 0;
+  color: var(--second);
 }
 
 .match-info {
