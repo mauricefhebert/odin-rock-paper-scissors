@@ -11,6 +11,7 @@ body {
 .title {
   text-align: center;
   color: var(--second);
+  font-size: 3em;
 }
 
 .control {
@@ -26,4 +27,40 @@ body {
   border-radius: 0.4em;
   width: 5em;
   height: 3em;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: hsl(178, 76%, 75%);
+}
+
+.message {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.match-info {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 30em;
+  margin: 0 auto;
+}
+
+.match-info > div > p {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.match-info > div > span {
+  font-size: 2em;
+}
+
+.match-info > div {
+  text-align: center;
 }
